@@ -1,0 +1,35 @@
+<form method="POST" enctype="multipart/form-data" action="/list/search?_method=GET" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+      <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search"/>
+    </form>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">STT</th>
+				<th scope="col">Ma Oto</th>
+				<th scope="col">Nhan Hieu</th>
+				<th scope="col">Nam San Xuat</th>
+				<th scope="col">Gia Goc</th>
+				<th scope="col">Gia Ban</th>
+				<th scope="col">Anh</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each data}}
+			<tr>
+				<th>{{index_item @index}}</th>
+				<th>{{this.maOto}}</th>
+				<th>{{this.nhanHieu}}</th>
+				<th>{{this.namSX}}</th>
+				<th>{{this.giaGoc}}</th>
+				<th>{{this.giaBan}}</th>
+				<th><img width="100" height="100" src="http://localhost:8888/{{this.anhDaiDien}}"/></th>
+				<th>
+					<form method="POST" action="/list/{{this._id}}?_method=DELETE">
+						<input type="submit" value="DELETE"/>
+					</form>
+				</th>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
