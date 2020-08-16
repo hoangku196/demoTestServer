@@ -119,10 +119,10 @@ app.delete('/list/:id?', function(req, res){
 		}
 	);
 });
-app.get('/list/search', function(req, res){
+app.get('/search', function(req, res){
 	var list = db.model(collection, test, 'demotest1');
-	console.log(req.body.search);
-	var check = list.find({nhanHieu: req.body.search}, function(err, data){
+	console.log(req.body.searchItem);
+	var check = list.find({nhanHieu: req.body.searchItem}, function(err, data){
 		res.render('search_form', {
 			data: data,
 			helpers: {
